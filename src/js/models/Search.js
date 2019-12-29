@@ -4,7 +4,7 @@ export default class Search {
   constructor(query) {
     this.query = query;
   }
-  
+
   async getResults(){
     const res =  await axios("https://edamam-recipe-search.p.rapidapi.com/search?q=" + this.query +"&diet=low-carb", {
       "method": "GET",

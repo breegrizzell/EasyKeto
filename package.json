@@ -6,7 +6,8 @@
   "scripts": {
     "build": "webpack --mode production",
     "dev": "webpack --mode development",
-    "devserver": "webpack-dev-server --open"
+    "devserver": "webpack-dev-server --open",
+    "start": "webpack-dev-server --open"
   },
   "author": "Brianna Grizzell",
   "license": "MIT",
