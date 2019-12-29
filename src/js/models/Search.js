@@ -15,7 +15,7 @@ export default class Search {
       }
     });
     this.results = res.data.hits;
-    console.log(this.results)
+    console.log(this.results);
     renderResults(this.results.map(r => r.recipe));
   }
 }
