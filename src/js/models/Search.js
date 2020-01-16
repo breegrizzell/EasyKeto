@@ -7,7 +7,7 @@ export default class Search {
   }
 
   async getResults(){
-    const res =  await axios("https://edamam-recipe-search.p.rapidapi.com/search?q=" + this.query +"&diet=low-carb", {
+    const res =  await axios("https://edamam-recipe-search.p.rapidapi.com/search?q=" + this.query +"&diet=low-carb&from=10&to=80", {
       "method": "GET",
       "headers": {
         "x-rapidapi-host": "edamam-recipe-search.p.rapidapi.com",
