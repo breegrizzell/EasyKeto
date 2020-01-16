@@ -17,22 +17,22 @@ const controlSearch = async () => {
   //Pull in input
   const query = searchView.getInput();
   console.log(query);
-  
+
   if (query) {
     //New Search object, add to state
     state.search = new Search(query);
-    
+
     // prepare the ui for the next step
     searchView.clearInput();
     searchView.clearResults();
     renderLoader(elements.searchRes);
-    
+
     //search for the recipe
     await state.search.getResults().then().catch(err => alert(err));
-    
+
     //render results on ui
     clearLoader();
-    searchView.renderResults(state.search.result);
+    searchView.renderResults(state.search.results);
   }
 };
 
@@ -50,7 +50,7 @@ elements.searchResPages.addEventListener(`click`, event => {
     const goToPage = parseInt(btn.dataset.goto, 10);
     searchView.renderResults(state.search.result, goToPage);
     console.log(goToPage);
-  
+
   }
 });
 

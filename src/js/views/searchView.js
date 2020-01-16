@@ -10,7 +10,7 @@ export const clearResults = () => {
   elements.searchResultList.innerHTML = '';
 };
 
-const limitRecipeTitle = (title, limit = 17) => {
+const limitRecipeTitle = (title = '', limit = 17) => {
   const newTitle = [];
   if (title.length > limit) {
     title.split(' ').reduce((acc, cur) => {
@@ -55,7 +55,7 @@ const createButton = (page, type) =>
 const renderButtons = (page, numResults, resPerPage) => {
   const pages = Math.ceil(numResults / resPerPage);
   let button;
-  
+
   if (page === 1 && pages > 1) {
     //Button for next page
     button = createButton(page, 'next')
@@ -71,21 +71,21 @@ const renderButtons = (page, numResults, resPerPage) => {
   else if (page === pages && page > 1) {
     //Button for previous page
     button = createButton(page, 'prev')
-    
+
   }
-  
+
   elements.searchResPages.insertAdjacentHTML('afterbegin', button);
-  
+
 };
 
 export const renderResults = (recipes, page = 1, resPerPage = 10) => {
   //Render the results of the current page
   const start = (page - 1) * resPerPage;
   const end = page * resPerPage;
-  
+
   recipes.slice(start, end).forEach(renderRecipe);
-  
+
   // render pagination buttons
   renderButtons(page, recipes.length, resPerPage);
-  
+
 };
